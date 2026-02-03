@@ -11,32 +11,32 @@ import {
 
 // Social links using React Icons
 const socialLinks = [
+  // {
+  //   href: "https://facebook.com/webpro.ng",
+  //   label: "Facebook",
+  //   icon: <FaFacebookF size={22} />,
+  //   brandColor: "#1877f3",
+  // },
+  // {
+  //   href: "https://twitter.com/webpro_ng",
+  //   label: "Twitter",
+  //   icon: <FaTwitter size={22} />,
+  //   brandColor: "#1da1f2",
+  // },
   {
-    href: "https://facebook.com/webpro.ng",
-    label: "Facebook",
-    icon: <FaFacebookF size={22} />,
-    brandColor: "#1877f3",
-  },
-  {
-    href: "https://twitter.com/webpro_ng",
-    label: "Twitter",
-    icon: <FaTwitter size={22} />,
-    brandColor: "#1da1f2",
-  },
-  {
-    href: "https://instagram.com/webpro.ng",
+    href: "https://www.instagram.com/echoloft_designs?igsh=MW8zYWc4aG13NHN3Zg%3D%3D&utm_source=qr",
     label: "Instagram",
     icon: <FaInstagram size={22} />,
     brandColor: "#e4405f",
   },
+  // {
+  //   href: "https://linkedin.com/company/webprong",
+  //   label: "LinkedIn",
+  //   icon: <FaLinkedinIn size={22} />,
+  //   brandColor: "#0a66c2",
+  // },
   {
-    href: "https://linkedin.com/company/webprong",
-    label: "LinkedIn",
-    icon: <FaLinkedinIn size={22} />,
-    brandColor: "#0a66c2",
-  },
-  {
-    href: "https://www.tiktok.com/@webpro.ng",
+    href: "https://www.tiktok.com/@echoloft.designs?_r=1&_t=ZS-93cR1q7CGES",
     label: "TikTok",
     icon: (
       // TikTok icon via SVG, as react-icons does not include TikTok in Font Awesome
