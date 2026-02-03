@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Responsive grid for sections */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand/About */}
-          <section className='top-0'>
+          <div className='top-0'>
             <div className="flex items-center mb-4">
               <div
                 className="w-28 h-28 rounded-full flex items-center justify-center bg-transparent transition-transform duration-300 hover:scale-105 active:scale-100"
@@ -125,7 +125,7 @@ export default function Footer() {
                 }}
               >
                 <img
-                  src={"/images/echoloft-logo-white.png"}
+                  src={"/images/logo.svg"}
                   alt="Echoloft Logo"
                   className="object-contain"
                   style={{
@@ -177,7 +177,7 @@ export default function Footer() {
                 </a>
               ))}
             </nav>
-          </section>
+          </div>
           {/* Services */}
           <section>
             <h3 className="text-lg font-semibold mb-4 tracking-tight">Services</h3>

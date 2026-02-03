@@ -51,14 +51,14 @@ export default function WhatIsIncluded() {
                 >
                     {/* Domain */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-3 row-span-1 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-3 row-span-1 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                             <FaGlobe className="text-blue-600 text-2xl" />
@@ -71,14 +71,14 @@ export default function WhatIsIncluded() {
                     </motion.div>
                     {/* Hosting */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-3 row-span-1 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-3 row-span-1 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
                             <FaServer className="text-purple-600 text-2xl" />
@@ -91,14 +91,14 @@ export default function WhatIsIncluded() {
                     </motion.div>
                     {/* Custom Web Design WITH Free Logo Inside */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
                             <FaPaintBrush className="text-green-600 text-2xl" />
@@ -123,14 +123,14 @@ export default function WhatIsIncluded() {
                     </motion.div>
                     {/* Web Development */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
                             <FaRocket className="text-orange-600 text-2xl" />
@@ -142,14 +142,14 @@ export default function WhatIsIncluded() {
                     </motion.div>
                     {/* SEO */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
                             <FaSearch className="text-yellow-600 text-2xl" />
@@ -161,14 +161,14 @@ export default function WhatIsIncluded() {
                     </motion.div>
                     {/* Mobile Friendly */}
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 transition-shadow duration-300 hover:shadow-2xl col-span-1 md:col-span-2 row-span-1 flex flex-col relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
                             <FaMobileAlt className="text-red-600 text-2xl" />

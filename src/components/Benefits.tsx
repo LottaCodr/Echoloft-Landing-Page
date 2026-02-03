@@ -47,14 +47,14 @@ export default function Benefits() {
                     viewport={{ once: true, margin: "-50px" }}
                 >
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                             <FaUsers className="text-blue-600 text-2xl" />
@@ -63,14 +63,14 @@ export default function Benefits() {
                         <p className="text-gray-600">Your website works 24/7 to attract new customers, even while you sleep. Expand your reach beyond your local area.</p>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
                             <FaCreditCard className="text-green-600 text-2xl" />
@@ -79,14 +79,14 @@ export default function Benefits() {
                         <p className="text-gray-600">A professional website builds trust and credibility, making customers more likely to buy from you.</p>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
                             <FaChartLine className="text-purple-600 text-2xl" />
@@ -95,14 +95,14 @@ export default function Benefits() {
                         <p className="text-gray-600">A well-designed website levels the playing field, allowing you to compete with larger businesses.</p>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
                             <FaClock className="text-orange-600 text-2xl" />
@@ -111,14 +111,14 @@ export default function Benefits() {
                         <p className="text-gray-600">Answer common customer questions automatically, freeing up your time to focus on your business.</p>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
                             <FaShareAlt className="text-yellow-600 text-2xl" />
@@ -127,14 +127,14 @@ export default function Benefits() {
                         <p className="text-gray-600">Share your website link on social media, WhatsApp, and business cards to promote your business effortlessly.</p>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-8 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
+                        className="bg-white p-8 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.02,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
                             <FaChartBar className="text-red-600 text-2xl" />

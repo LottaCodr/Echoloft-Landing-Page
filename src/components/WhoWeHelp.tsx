@@ -56,14 +56,14 @@ export default function WhoWeHelp() {
                     viewport={{ once: true, margin: "-50px" }}
                 >
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaStore className="text-blue-600 text-2xl" />
@@ -71,14 +71,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Retail Stores</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaUtensils className="text-green-600 text-2xl" />
@@ -86,14 +86,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Restaurants & Cafes</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaGraduationCap className="text-purple-600 text-2xl" />
@@ -101,14 +101,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Schools & Tutors</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaTools className="text-orange-600 text-2xl" />
@@ -116,14 +116,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Service Providers</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaCamera className="text-yellow-600 text-2xl" />
@@ -131,14 +131,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Photographers</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaHeartbeat className="text-red-600 text-2xl" />
@@ -146,14 +146,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Health & Wellness</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaBriefcase className="text-indigo-600 text-2xl" />
@@ -161,14 +161,14 @@ export default function WhoWeHelp() {
                         <h3 className="text-lg font-bold text-gray-900 mb-2">Professionals</h3>
                     </motion.div>
                     <motion.div
-                        className="bg-white p-6 rounded-2xl border-2 border-gray-800 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
+                        className="bg-white p-6 rounded-2xl border-2 border-gray-300 font-semibold transition-shadow duration-300 hover:shadow-2xl text-center relative overflow-hidden"
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             borderColor: "#1f7a3f",
                             transition: { duration: 0.3 }
                         }}
-                        style={{ borderColor: "rgb(31 41 55)" }}
+                        style={{ borderColor: "rgb(209 213 219)" }}
                     >
                         <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <FaHandHoldingHeart className="text-pink-600 text-2xl" />

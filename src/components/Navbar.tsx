@@ -1,5 +1,21 @@
-import React, { useState, useRef, useEffect } from "react"
-// import echoloftLogoWhite from ""
+import React, { useState, useEffect } from "react"
+
+// Simple Hamburger Icon
+function SimpleHamburger({ open }: { open: boolean }) {
+  return (
+    <div className="w-6 h-6 flex flex-col justify-center items-center">
+      <span
+        className={`block h-0.5 w-6 bg-[color:var(--color-text)] transition-transform duration-200 ${open ? "translate-y-2 rotate-45" : ""}`}
+      />
+      <span
+        className={`block h-0.5 w-6 bg-[color:var(--color-text)] transition-opacity duration-200 my-1 ${open ? "opacity-0" : "opacity-100"}`}
+      />
+      <span
+        className={`block h-0.5 w-6 bg-[color:var(--color-text)] transition-transform duration-200 ${open ? "-translate-y-2 -rotate-45" : ""}`}
+      />
+    </div>
+  )
+}
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -9,37 +25,33 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
 ]
 
-// Use color-tokens from App.css for nav links: 
-// --color-text: #0f172a;
-// --color-primary: #1f7a3f;
-
+// Scroll active section highlight (unchanged)
 function getActiveSection(hashLinks: typeof navLinks): string {
-  if (typeof window === "undefined") return ""
-  let active = hashLinks[0]?.href || ""
+  if (typeof window === "undefined") return "";
+  let active = hashLinks[0]?.href || "";
   const offsets = hashLinks
     .map((l) => {
-      const el = document.querySelector(l.href)
+      const el = document.querySelector(l.href);
       if (el) {
-        const rect = (el as HTMLElement).getBoundingClientRect()
-        return { href: l.href, top: rect.top + window.scrollY }
+        const rect = (el as HTMLElement).getBoundingClientRect();
+        return { href: l.href, top: rect.top + window.scrollY };
       }
-      return undefined
+      return undefined;
     })
-    .filter(Boolean) as { href: string; top: number }[]
-  const scroll = window.scrollY + 80 // Allow for navbar height
+    .filter(Boolean) as { href: string; top: number }[];
+  const scroll = window.scrollY + 80;
   for (let i = offsets.length - 1; i >= 0; i--) {
     if (scroll >= offsets[i].top - 5) {
-      active = offsets[i].href
-      break
+      active = offsets[i].href;
+      break;
     }
   }
-  return active
+  return active;
 }
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#home")
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   // Track active section on scroll
   useEffect(() => {
@@ -52,29 +64,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Close mobile menu on click outside or Esc key
-  useEffect(() => {
-    if (!mobileOpen) return
-    function handleClick(e: MouseEvent) {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(e.target as Node)
-      ) {
-        setMobileOpen(false)
-      }
-    }
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setMobileOpen(false)
-    }
-    document.addEventListener("mousedown", handleClick)
-    document.addEventListener("keydown", handleKey)
-    return () => {
-      document.removeEventListener("mousedown", handleClick)
-      document.removeEventListener("keydown", handleKey)
-    }
-  }, [mobileOpen])
-
-  // Lock background scroll when mobile menu open
+  // Prevent scroll when mobile nav open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden"
@@ -116,8 +106,8 @@ export default function Navbar() {
             aria-label="Go to home section"
             tabIndex={0}
             onClick={e => {
-              e.preventDefault()
-              handleNavClick("#home")
+              e.preventDefault();
+              handleNavClick("#home");
             }}
           >
             <div
@@ -128,28 +118,20 @@ export default function Navbar() {
               }}
             >
               <img
-                src={'/images/echoloft-logo-white.png'}
+                src={"/images/logo.svg"}
                 alt="Echoloft Logo"
                 className="w-40 h-40 object-contain"
                 style={{
-                  display: 'block',
-                  width: "112px",   // 28 * 4 px
-                  height: "112px",  // 28 * 4 px
+                  display: "block",
+                  width: "112px",
+                  height: "112px",
                   maxWidth: "none",
                   maxHeight: "none",
-                  filter: 'drop-shadow(0 0 1px #0008) brightness(0) saturate(100%) invert(25%) sepia(69%) saturate(610%) hue-rotate(84deg) brightness(95%) contrast(95%)',
+                  filter: "drop-shadow(0 0 1px #0008) brightness(0) saturate(100%) invert(25%) sepia(69%) saturate(610%) hue-rotate(84deg) brightness(95%) contrast(95%)",
                   margin: 0,
                 }}
               />
             </div>
-            {/* <span
-              className="ml-2 text-xl font-bold select-none tracking-tight"
-              style={{
-                color: "var(--color-text)",
-              }}
-            >
-              Echoloft
-            </span> */}
           </a>
           {/* Desktop nav links */}
           <div className="hidden md:block">
@@ -162,10 +144,6 @@ export default function Navbar() {
                     href={link.href}
                     className={`
                       relative px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none
-                      ${isActive
-                        ? "" // will style active in style below
-                        : ""
-                      }
                     `}
                     style={{
                       color: isActive
@@ -179,19 +157,6 @@ export default function Navbar() {
                     }}
                   >
                     <span className="relative z-10">{link.label}</span>
-                    <span
-                      aria-hidden="true"
-                      className={`
-                        absolute left-1/2 -translate-x-1/2 bottom-1
-                        h-0.5 w-2/3 rounded-full
-                        transition-all duration-200
-                        ${isActive
-                          ? "bg-[color:var(--color-primary)] opacity-100"
-                          : "opacity-0"
-                        }
-                        group-hover:bg-[color:var(--color-primary)] group-hover:opacity-70
-                      `}
-                    ></span>
                   </a>
                 )
               })}
@@ -234,130 +199,76 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               id="mobile-menu-button"
-              className="text-[color:var(--color-text)] hover:text-[color:var(--color-primary)] active:text-[color:var(--color-primary)] focus:text-[color:var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-primary)] rounded p-2"
-              aria-label="Open navigation menu"
+              className={`
+                flex items-center justify-center
+                text-[color:var(--color-text)] hover:text-[color:var(--color-primary)] active:text-[color:var(--color-primary)] focus:outline-none rounded p-2
+                transition-colors duration-200 bg-white
+              `}
+              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-controls="mobile-menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(!mobileOpen)}
             >
-              <i className="fas fa-bars text-xl"></i>
+              <span className="sr-only">
+                {mobileOpen ? "Close menu" : "Open menu"}
+              </span>
+              <SimpleHamburger open={mobileOpen} />
             </button>
           </div>
         </div>
       </div>
-      {/* Mobile menu overlay */}
-      <div
-        id="mobile-menu"
-        ref={mobileMenuRef}
-        className={`fixed inset-0 z-[1001] md:hidden bg-black/40 backdrop-blur transition-opacity duration-300 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-        style={{ transitionProperty: "opacity, backdrop-filter" }}
-        aria-modal="true"
-        tabIndex={-1}
-      >
-        {/* Slide-out panel */}
+      {/* Simple mobile menu */}
+      {mobileOpen && (
         <div
-          className={`absolute top-0 right-0 h-full w-4/5 max-w-xs bg-white bg-opacity-90 shadow-lg transition-transform duration-300 ease-in-out ${mobileOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-          style={{
-            borderTopLeftRadius: "1.25rem",
-            borderBottomLeftRadius: "1.25rem",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            background: "rgba(255,255,255,0.90)"
-          }}
-          role="menu"
+          className="absolute left-0 right-0 top-24 z-[1001] md:hidden bg-white border-t border-gray-100 shadow-lg"
+          aria-modal="true"
+          tabIndex={-1}
         >
-          <div className="flex justify-between items-center px-4 pt-4 pb-2 border-b border-gray-100">
-            <span
-              className="font-bold text-xl tracking-tight pl-2"
-              style={{ color: "var(--color-text)" }}
-            >
-              Menu
-            </span>
-            <button
-              aria-label="Close menu"
-              className="text-[color:var(--color-text)] hover:text-[color:var(--color-primary)] active:text-[color:var(--color-primary)] focus:text-[color:var(--color-primary)] focus:outline-none p-2"
-              onClick={() => setMobileOpen(false)}
-              tabIndex={0}
-            >
-              <i className="fas fa-times text-2xl"></i>
-            </button>
-          </div>
-          <div className="px-2 pt-3 pb-5 space-y-2 flex flex-col">
-            {navLinks.map(link => {
-              const isActive = link.href === activeSection
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`
-                    block px-3 py-2 rounded text-base font-medium transition-all duration-150 relative
-                    ${isActive ? "" : ""}
-                    hover:bg-gray-50 
-                    focus:bg-gray-100
-                  `}
-                  style={{
-                    color: isActive
+          <div className="flex flex-col items-center gap-2 py-6 px-5">
+            {navLinks.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="block w-full text-base font-medium px-3 py-3 rounded text-center transition-colors duration-150"
+                style={{
+                  color:
+                    link.href === activeSection
                       ? "var(--color-primary)"
                       : "var(--color-text)",
-                    backgroundColor: isActive ? "var(--color-background-muted)" : "transparent",
-                    transition: "color var(--duration-normal), background-color var(--duration-normal)",
-                  }}
-                  onClick={e => {
-                    e.preventDefault()
-                    handleNavClick(link.href)
-                  }}
-                  role="menuitem"
-                >
-                  <span>{link.label}</span>
-                  <span
-                    aria-hidden="true"
-                    className={`
-                      absolute left-5 bottom-1 h-0.5 w-3/4 rounded-full
-                      transition-all duration-200
-                      ${isActive
-                        ? "bg-[color:var(--color-primary)] opacity-100"
-                        : "opacity-0"
-                      }
-                    `}
-                  ></span>
-                </a>
-              )
-            })}
+                  background:
+                    link.href === activeSection
+                      ? "var(--color-background-muted)"
+                      : "transparent",
+                }}
+                onClick={e => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
             <a
               href="#home"
               tabIndex={0}
+              className="w-full"
               onClick={e => {
-                e.preventDefault()
-                handleNavClick("#home")
+                e.preventDefault();
+                handleNavClick("#home");
               }}
             >
               <button
-                className="w-full text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 mt-4 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-primary)] focus:ring-offset-2"
+                className="w-full text-white px-6 py-3 rounded-full text-base font-medium transition-colors duration-300 mt-3"
                 style={{
                   backgroundColor: "var(--color-primary)",
-                  transition: "background-color var(--duration-normal)",
                 }}
-                onMouseOver={e =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary-dark)")
-                }
-                onMouseOut={e =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary)")
-                }
-                onMouseDown={e =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary-dark)")
-                }
-                onFocus={e =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary-dark)")
-                }
               >
                 Get Your Website Now
               </button>
             </a>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   )
 }
