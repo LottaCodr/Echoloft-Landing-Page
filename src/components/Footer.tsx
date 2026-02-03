@@ -78,7 +78,7 @@ const quickLinks = [
 const contacts = [
   {
     icon: <FaPhone className="mr-3 text-blue-400" size={18} aria-hidden="true" />,
-    value: <a href="tel:+2348012345678" className="hover:underline">+234 801 234 5678</a>,
+    value: <a href="tel:+2348130923309" className="hover:underline">+234 801 234 5678</a>,
     label: "Phone"
   },
   {

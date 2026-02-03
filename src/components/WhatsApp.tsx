@@ -1,7 +1,7 @@
 import React from "react"
 import { FaWhatsapp } from "react-icons/fa"
 
-const WHATSAPP_NUMBER = "2347012345678" // Replace with your real WhatsApp number (no plus, remove leading zero)
+const WHATSAPP_NUMBER = "+2348130923309" // Replace with your real WhatsApp number (no plus, remove leading zero)
 const DEFAULT_MESSAGE =
   "Hello, I'm interested in getting a professional website for my business!"
 
