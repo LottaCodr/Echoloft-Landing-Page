@@ -127,7 +127,6 @@ export default function Navbar() {
                   height: "112px",
                   maxWidth: "none",
                   maxHeight: "none",
-                  filter: "drop-shadow(0 0 1px #0008) brightness(0) saturate(100%) invert(25%) sepia(69%) saturate(610%) hue-rotate(84deg) brightness(95%) contrast(95%)",
                   margin: 0,
                 }}
               />
@@ -202,8 +201,11 @@ export default function Navbar() {
               className={`
                 flex items-center justify-center
                 text-[color:var(--color-text)] hover:text-[color:var(--color-primary)] active:text-[color:var(--color-primary)] focus:outline-none rounded p-2
-                transition-colors duration-200 bg-white
+                transition-colors duration-200
               `}
+              style={{
+                backgroundColor: "transparent",
+              }}
               aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-controls="mobile-menu"
               aria-expanded={mobileOpen}
