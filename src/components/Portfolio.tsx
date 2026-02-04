@@ -104,7 +104,7 @@ export default function Portfolio() {
             className="text-3xl md:text-4xl font-bold text-center leading-snug mb-10"
             style={{ color: "var(--color-text)" }}
           >
-            Our works describe us
+            Our Works Describes Us
           </h2>
 
           <div className="grid gap-6 md:grid-cols-2 auto-rows-[220px] md:auto-rows-[260px]">
