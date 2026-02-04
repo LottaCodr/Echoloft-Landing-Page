@@ -1,7 +1,11 @@
 import React from "react"
 import { motion } from "motion/react"
 
-export default function Hero() {
+type HeroProps = {
+  onOpenBooking?: () => void
+}
+
+export default function Hero({ onOpenBooking }: HeroProps) {
   return (
     <section
       id="home"
@@ -39,6 +43,7 @@ export default function Hero() {
                 }}
                 onMouseOver={e => e.currentTarget.style.backgroundColor = "var(--color-primary-dark)"}
                 onMouseOut={e => e.currentTarget.style.backgroundColor = "var(--color-primary)"}
+                onClick={() => onOpenBooking?.()}
               >
                 Get Started Today
               </button>

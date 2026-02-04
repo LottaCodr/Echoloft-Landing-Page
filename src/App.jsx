@@ -17,12 +17,19 @@ import WhoWeHelp from "./components/WhoWeHelp"
 import FAQ from "./components/FAQ"
 import CTA from "./components/CTA"
 import WhatsApp from "./components/WhatsApp"
+import { useState } from "react"
+import BookingDialog from "./components/BookingDialog"
 
 export default function App() {
+  const [bookingOpen, setBookingOpen] = useState(false)
+
+  const openBooking = () => setBookingOpen(true)
+  const handleBookingChange = (open) => setBookingOpen(open)
+
   return (
     <div className="w-screen min-w-0 overflow-x-hidden">
-      <Navbar />
-      <Hero />
+      <Navbar onOpenBooking={openBooking} />
+      <Hero onOpenBooking={openBooking} />
       <WhatIsIncluded />
       <Benefits/>
       <HowItWorks />
@@ -31,6 +38,7 @@ export default function App() {
       <CTA />
       <Footer />
       <WhatsApp/>
+      <BookingDialog open={bookingOpen} onOpenChange={handleBookingChange} />
       {/* <OurStory />
       <WhatWeDo />
       <About />

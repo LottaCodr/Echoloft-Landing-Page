@@ -17,6 +17,10 @@ function SimpleHamburger({ open }: { open: boolean }) {
   )
 }
 
+type NavbarProps = {
+  onOpenBooking?: () => void
+}
+
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
@@ -49,7 +53,7 @@ function getActiveSection(hashLinks: typeof navLinks): string {
   return active;
 }
 
-export default function Navbar() {
+export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#home")
 
@@ -169,6 +173,7 @@ export default function Navbar() {
               onClick={e => {
                 e.preventDefault()
                 handleNavClick("#home")
+                onOpenBooking?.()
               }}
             >
               <button
@@ -257,6 +262,7 @@ export default function Navbar() {
               onClick={e => {
                 e.preventDefault();
                 handleNavClick("#home");
+                onOpenBooking?.()
               }}
             >
               <button
