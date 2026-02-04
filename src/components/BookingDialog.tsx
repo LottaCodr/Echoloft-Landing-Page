@@ -24,7 +24,7 @@ export default function BookingDialog({ open, onOpenChange }: BookingDialogProps
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     window.open(
-      "https://calendly.com/echoloft/free-website-consultation",
+      "https://calendly.com/echoloft001/free-website-consultation",
       "_blank"
     );
     onOpenChange(false);
