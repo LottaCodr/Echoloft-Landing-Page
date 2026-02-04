@@ -19,12 +19,17 @@ import CTA from "./components/CTA"
 import WhatsApp from "./components/WhatsApp"
 import { useState } from "react"
 import BookingDialog from "./components/BookingDialog"
+import ContactDialog from "./components/ContactDialog"
 
 export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false)
+  const [contactOpen, setContactOpen] = useState(false)
 
   const openBooking = () => setBookingOpen(true)
   const handleBookingChange = (open) => setBookingOpen(open)
+
+  const openContact = () => setContactOpen(true)
+  const handleContactChange = (open) => setContactOpen(open)
 
   return (
     <div className="w-screen min-w-0 overflow-x-hidden">
@@ -35,10 +40,11 @@ export default function App() {
       <HowItWorks />
       <WhoWeHelp />
       <FAQ />
-      <CTA />
+      <CTA onOpenBooking={openBooking} onOpenContact={openContact} />
       <Footer />
       <WhatsApp/>
       <BookingDialog open={bookingOpen} onOpenChange={handleBookingChange} />
+      <ContactDialog open={contactOpen} onOpenChange={handleContactChange} />
       {/* <OurStory />
       <WhatWeDo />
       <About />

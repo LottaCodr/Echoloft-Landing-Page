@@ -1,7 +1,12 @@
 import React from 'react'
 import { motion } from 'motion/react'
 
-export default function CTA() {
+type CTAProps = {
+    onOpenBooking?: () => void
+    onOpenContact?: () => void
+}
+
+export default function CTA({ onOpenBooking, onOpenContact }: CTAProps) {
     return (
         <section
             className="py-16"
@@ -39,6 +44,7 @@ export default function CTA() {
                             e.currentTarget.style.backgroundColor = "#fff";
                             e.currentTarget.style.color = "var(--color-primary)";
                         }}
+                        onClick={() => onOpenBooking?.()}
                     >
                         Get Your Website Now
                     </button>
@@ -58,6 +64,7 @@ export default function CTA() {
                             e.currentTarget.style.backgroundColor = "transparent";
                             e.currentTarget.style.color = "#fff";
                         }}
+                        onClick={() => onOpenContact?.()}
                     >
                         Contact Us
                     </button>
