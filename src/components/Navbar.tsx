@@ -122,7 +122,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               }}
             >
               <img
-                src={"/images/logo.svg"}
+                src={"/images/main-logo.svg"}
                 alt="Echoloft Logo"
                 className="w-40 h-40 object-contain"
                 style={{

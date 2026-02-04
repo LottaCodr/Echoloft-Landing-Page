@@ -166,7 +166,7 @@ export default function Footer() {
                 }}
               >
                 <img
-                  src={"/images/logo.svg"}
+                  src={"/images/white_main.svg"}
                   alt="Echoloft Logo"
                   className="object-contain"
                   style={{
