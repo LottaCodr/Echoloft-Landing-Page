@@ -37,6 +37,7 @@ export default function App() {
       <Hero onOpenBooking={openBooking} />
       <WhatIsIncluded />
       <Benefits/>
+      <Portfolio />
       <HowItWorks onOpenBooking={openBooking} />
       <WhoWeHelp />
       <FAQ />
@@ -50,7 +51,6 @@ export default function App() {
       <About />
       <MissionVision />
       <Features />
-      <Portfolio />
       <Team />
       <Pricing /> */}
     </div>

@@ -64,6 +64,13 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   e.currentTarget.style.backgroundColor = "transparent";
                   e.currentTarget.style.color = "var(--color-primary)";
                 }}
+                onClick={() => {
+                  if (typeof window === "undefined") return
+                  const el = document.querySelector("#portfolio")
+                  if (el) {
+                    (el as HTMLElement).scrollIntoView({ behavior: "smooth" })
+                  }
+                }}
               >
                 See Examples
               </button>
