@@ -26,12 +26,11 @@ const COLORS = {
 };
 
 const socialLinks = [
-  // Uncomment Facebook/Twitter/LinkedIn if needed, but update to --color-primary if appropriate.
   {
     href: "https://www.instagram.com/echoloft_designs?igsh=MW8zYWc4aG13NHN3Zg%3D%3D&utm_source=qr",
     label: "Instagram",
     icon: <FaInstagram size={22} />,
-    brandColor: "#e4405f", // Instagram has a strong brand color; keep for identity
+    brandColor: COLORS.white,
   },
   {
     href: "https://www.tiktok.com/@echoloft.designs?_r=1&_t=ZS-93cR1q7CGES",
@@ -48,11 +47,11 @@ const socialLinks = [
       >
         <path
           d="M16.666 0H12.665v16.393a2.672 2.672 0 11-2.347-2.654V9.74a6.988 6.988 0 101.64 13.733c2.841-.535 5.039-3.062 5.039-6.027V7.967c1.135.847 2.501 1.347 4 1.347V4.75a4.748 4.748 0 01-4.33-4.75z"
-          fill="#000"
+          fill="#fff"
         />
       </svg>
     ),
-    brandColor: "#010101",
+    brandColor: COLORS.white,
   },
 ];
 
@@ -189,42 +188,52 @@ export default function Footer() {
               presence; affordably and quickly.
             </p>
             {/* Accessible social icons */}
-            <nav
-              aria-label="Social media"
-              className="flex space-x-3 mt-3 mb-2"
-            >
-              {socialLinks.map((link) => (
-                <a
-                  href={link.href}
-                  key={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`rounded-full group transition-all duration-200 shadow-lg p-2 flex items-center justify-center focus:outline-none`}
-                  style={{
-                    background: "var(--color-background)",
-                    color: link.brandColor,
-                    border: `1.5px solid ${link.brandColor}`,
-                    boxShadow: "0 2px 10px 0 rgba(0,0,0,0.07)",
-                  }}
-                  aria-label={link.label}
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      window.open(link.href, "_blank", "noopener,noreferrer");
-                    }
-                  }}
-                >
-                  <span
-                    className="group-hover:text-white transition-colors duration-200"
+            <div className="mb-2">
+              <span className="block text-xs tracking-widest font-semibold mb-2" style={{ color: COLORS.textMuted, letterSpacing: "2px" }}>
+                FOLLOW&nbsp;US
+              </span>
+              <nav
+                aria-label="Social media"
+                className="flex space-x-3"
+              >
+                {socialLinks.map((link) => (
+                  <a
+                    href={link.href}
+                    key={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={"group transition-all duration-200 focus:outline-none p-0 flex items-center justify-center"}
                     style={{
                       color: link.brandColor,
+                      background: "transparent",
+                      border: "none",
+                      boxShadow: "none",
+                    }}
+                    aria-label={link.label}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        window.open(link.href, "_blank", "noopener,noreferrer");
+                      }
                     }}
                   >
-                    {link.icon}
-                  </span>
-                </a>
-              ))}
-            </nav>
+                    <span
+                      className="transition-colors duration-200"
+                      style={{
+                        color: COLORS.white,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: 32,
+                        width: 32,
+                      }}
+                    >
+                      {link.icon}
+                    </span>
+                  </a>
+                ))}
+              </nav>
+            </div>
           </div>
           {/* Services */}
           <section>
