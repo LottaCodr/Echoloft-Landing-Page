@@ -37,7 +37,7 @@ export default function App() {
       <Hero onOpenBooking={openBooking} />
       <WhatIsIncluded />
       <Benefits/>
-      <HowItWorks />
+      <HowItWorks onOpenBooking={openBooking} />
       <WhoWeHelp />
       <FAQ />
       <CTA onOpenBooking={openBooking} onOpenContact={openContact} />

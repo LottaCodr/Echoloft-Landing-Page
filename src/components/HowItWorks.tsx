@@ -22,7 +22,11 @@ const itemVariants = {
   }
 }
 
-export default function HowItWorks() {
+type HowItWorksProps = {
+  onOpenBooking?: () => void
+}
+
+export default function HowItWorks({ onOpenBooking }: HowItWorksProps) {
   return (
     <section id="process" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +110,16 @@ export default function HowItWorks() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300">
+          <button
+            className="text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300"
+            style={{
+              backgroundColor: "var(--color-primary)",
+              transition: "background-color var(--duration-normal)",
+            }}
+            onMouseOver={e => e.currentTarget.style.backgroundColor = "var(--color-primary-dark)"}
+            onMouseOut={e => e.currentTarget.style.backgroundColor = "var(--color-primary)"}
+            onClick={() => onOpenBooking?.()}
+          >
             Start Your Website Today
           </button>
         </motion.div>
