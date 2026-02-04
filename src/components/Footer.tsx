@@ -186,7 +186,7 @@ export default function Footer() {
               style={{ color: COLORS.textMuted }}
             >
               Helping small businesses in Nigeria establish a professional online
-              presence—affordably and quickly.
+              presence; affordably and quickly.
             </p>
             {/* Accessible social icons */}
             <nav

@@ -89,7 +89,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed w-full top-0 z-[var(--z-navbar)] shadow-none"
+      className="fixed w-full mb-6 md:mb-10  z-[var(--z-navbar)] shadow-none"
       style={{
         background: "rgba(255,255,255,0.6)",
         backdropFilter: "blur(16px)",

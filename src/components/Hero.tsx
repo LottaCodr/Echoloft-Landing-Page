@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="pt-10 pb-16 w-full min-h-screen flex items-center"
+      className="pt-24 md:pt-28 pb-16 w-full min-h-screen flex items-center mb-8 md:mb-0"
       style={{
         background: "linear-gradient(135deg, #f0fdf4 0%, #f3f0ff 100%)",
       }}
