@@ -33,6 +33,12 @@ const socialLinks = [
     brandColor: COLORS.white,
   },
   {
+    href: "https://x.com/echo__loft?s=21",
+    label: "Twitter",
+    icon: <FaTwitter size={22} />,
+    brandColor: COLORS.white,
+  },
+  {
     href: "https://www.tiktok.com/@echoloft.designs?_r=1&_t=ZS-93cR1q7CGES",
     label: "TikTok",
     icon: (
