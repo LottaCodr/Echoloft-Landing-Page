@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 type CaseStudy = {
   id: string
@@ -93,6 +93,8 @@ const electricOutlineKeyframes = `
 `
 
 export default function Portfolio() {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
   return (
     <>
       {/* Electric glow keyframes, inject globally */}
@@ -122,10 +124,18 @@ export default function Portfolio() {
                 key={item.id}
                 className={`relative overflow-hidden rounded-3xl shadow-xl group transition-shadow duration-300 ease-out transform group-hover:shadow-2xl hover:scale-[1.035] hover:-translate-y-1 ${item.layoutClass}`}
                 style={{
-                  backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.12), rgba(15,23,42,0.25))`,
+                  backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.12), rgba(15,23,42,0.25)), url(${item.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                   transition: 'box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1)',
                   cursor: 'pointer'
                 }}
+                onMouseEnter={() => setHoveredId(item.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                tabIndex={0}
+                onFocus={() => setHoveredId(item.id)}
+                onBlur={() => setHoveredId(null)}
+                aria-label={`Case Study: ${item.title}`}
               >
                 {/* Electric "neon" animated outline on hover */}
                 <div
@@ -133,11 +143,20 @@ export default function Portfolio() {
                   style={electricOutlineStyle}
                 />
 
-                {/* Image layer */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                {/* On hover: display image as a visible img, on non-hover just a background */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity transition-transform duration-700 z-10 pointer-events-none ${
+                    hoveredId === item.id
+                      ? "opacity-100 scale-105"
+                      : "opacity-0 scale-100"
+                  }`}
+                  aria-hidden="true"
+                  draggable={false}
                   style={{
-                    backgroundImage: `url(${item.image})`,
+                    willChange: "transform, opacity",
+                    // only animate if on hover
                   }}
                 />
 
@@ -152,7 +171,6 @@ export default function Portfolio() {
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-between p-6 md:p-7 z-30">
                   <div className="flex-1" />
-
                   <div className="space-y-1">
                     <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/80">
                       {item.label}
