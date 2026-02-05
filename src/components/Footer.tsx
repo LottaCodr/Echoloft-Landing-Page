@@ -8,6 +8,8 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 // Use colours from App.css design tokens
 const COLORS = {
@@ -35,7 +37,7 @@ const socialLinks = [
   {
     href: "https://x.com/echo__loft?s=21",
     label: "Twitter",
-    icon: <FaTwitter size={22} />,
+    icon: <FaXTwitter size={22} />,
     brandColor: COLORS.white,
   },
   {
