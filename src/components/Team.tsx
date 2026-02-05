@@ -1,26 +1,52 @@
+import { motion } from "framer-motion";
+import { TeamCard } from "./TeamCard";
 import React from "react"
-
+import { containerVariants } from "../types/animation";
+import { team } from "../types/team.data";
 
 export default function Team() {
   return (
-    <section id="team" className="py-24 bg-secondary text-white">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12">
-          Meet the Team
-        </h2>
+    <section
+      id="team"
+      className="relative py-24 overflow-x-clip"
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(31,122,63,0.92), rgba(22,95,47,0.9), var(--color-secondary))",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-5 text-center">
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            Meet the Team
+          </h2>
+          <p className="mt-4 max-w-lg mx-auto text-white">
+            Our passionate team blends technical expertise and creative insight to
+            deliver{" "}
+            <span style={{ color: "var(--color-accent)" }}>
+              modern web solutions
+            </span>.
+          </p>
+        </motion.header>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {[1, 2, 3].map(i => (
-            <div
-              key={i}
-              className="p-6 border border-border rounded-lg"
-            >
-              <div className="h-32 bg-border rounded mb-4" />
-              <p className="text-text-muted">Team Member</p>
-            </div>
+        {/* Grid */}
+        <motion.div
+          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {team.map((member) => (
+            <TeamCard key={member.name} member={member} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  )
+  );
 }

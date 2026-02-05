@@ -40,6 +40,7 @@ export default function App() {
       <Portfolio />
       <HowItWorks onOpenBooking={openBooking} />
       <WhoWeHelp />
+      <Team />
       <FAQ />
       <CTA onOpenBooking={openBooking} onOpenContact={openContact} />
       <Footer />
@@ -51,7 +52,6 @@ export default function App() {
       <About />
       <MissionVision />
       <Features />
-      <Team />
       <Pricing /> */}
     </div>
   )
