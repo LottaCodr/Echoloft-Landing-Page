@@ -10,8 +10,7 @@ export default function Team() {
       id="team"
       className="relative py-24 overflow-x-clip"
       style={{
-        background:
-          "linear-gradient(to bottom, rgba(31,122,63,0.92), rgba(22,95,47,0.9), var(--color-secondary))",
+        background: "#000",
       }}
     >
       <div className="max-w-7xl mx-auto px-5 text-center">
