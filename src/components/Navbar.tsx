@@ -26,6 +26,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Benefits", href: "#benefits" },
   { label: "Process", href: "#process" },
+  { label: "Case Studies", href: "#portfolio" }, // <-- Added Portfolio case study section
   { label: "FAQ", href: "#faq" },
 ]
 
