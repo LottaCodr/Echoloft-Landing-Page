@@ -8,6 +8,7 @@ type CaseStudy = {
   gradient: string
   accentText: string
   layoutClass: string
+  image: string
 }
 
 const CASE_STUDIES: CaseStudy[] = [
@@ -19,6 +20,8 @@ const CASE_STUDIES: CaseStudy[] = [
     gradient: "from-[#fed7aa] via-[#f97316] to-[#fb7185]",
     accentText: "text-[#0f172a]",
     layoutClass: "md:row-span-2",
+    image:
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "abs-snacks",
@@ -28,6 +31,8 @@ const CASE_STUDIES: CaseStudy[] = [
     gradient: "from-[#4c1d95] via-[#7c3aed] to-[#22c55e]",
     accentText: "text-white",
     layoutClass: "",
+    image:
+      "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "llm-live",
@@ -37,6 +42,8 @@ const CASE_STUDIES: CaseStudy[] = [
     gradient: "from-[#f97316] via-[#ec4899] to-[#6366f1]",
     accentText: "text-white",
     layoutClass: "",
+    image:
+      "https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "noble-org",
@@ -46,6 +53,8 @@ const CASE_STUDIES: CaseStudy[] = [
     gradient: "from-[#22c55e] via-[#06b6d4] to-[#facc15]",
     accentText: "text-[#0f172a]",
     layoutClass: "",
+    image:
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
   },
 ]
 
@@ -111,7 +120,6 @@ export default function Portfolio() {
             {CASE_STUDIES.map((item) => (
               <article
                 key={item.id}
-                // Added tailwind and inline style effects for hover
                 className={`relative overflow-hidden rounded-3xl shadow-xl group transition-shadow duration-300 ease-out transform group-hover:shadow-2xl hover:scale-[1.035] hover:-translate-y-1 ${item.layoutClass}`}
                 style={{
                   backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.12), rgba(15,23,42,0.25))`,
@@ -125,22 +133,24 @@ export default function Portfolio() {
                   style={electricOutlineStyle}
                 />
 
-                {/* Image / artwork placeholder */}
+                {/* Image layer */}
                 <div
-                  className="absolute inset-0"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{
-                    backgroundImage: `linear-gradient(135deg, var(--color-background) 0%, rgba(15,23,42,0.02) 20%), linear-gradient(135deg, var(--color-background) 0%, rgba(15,23,42,0.02) 40%), linear-gradient(135deg, var(--color-background) 0%, rgba(15,23,42,0.02) 60%)`,
+                    backgroundImage: `url(${item.image})`,
                   }}
                 />
+
+                {/* Gradient overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-90 group-hover:opacity-100 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-80 group-hover:opacity-90 transition-opacity duration-500`}
                 />
 
-                {/* Subtle glass overlay for content area */}
-                <div className="absolute inset-0 bg-black/5 mix-blend-multiply" />
+                {/* Glass darkener for readability */}
+                <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
 
                 {/* Content */}
-                <div className="relative h-full flex flex-col justify-between p-6 md:p-7">
+                <div className="relative h-full flex flex-col justify-between p-6 md:p-7 z-30">
                   <div className="flex-1" />
 
                   <div className="space-y-1">
@@ -157,20 +167,12 @@ export default function Portfolio() {
                     </p>
                   </div>
                 </div>
-                {/* Hover animated overlay for effect */}
-                <div className="absolute inset-0 pointer-events-none rounded-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 z-10"
-                  style={{
-                    background: 'linear-gradient(120deg, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.06) 100%)'
-                  }}
-                />
-                {/* Animated subtle lift highlight (like moving window) */}
-                <div className="pointer-events-none absolute top-0 left-0 w-full h-1/3 bg-white/10 opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-md z-10" />
+                {/* Optional hover overlays and highlights removed as per prompt */}
               </article>
             ))}
           </div>
 
           <div className="mt-10 flex justify-center">
-
           </div>
         </div>
       </section>
