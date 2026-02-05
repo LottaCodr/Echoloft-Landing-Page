@@ -3,6 +3,8 @@ import {
     FaTwitter,
     FaLinkedinIn,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 import { TeamMember } from "./types";
 import React from "react"
 
@@ -19,7 +21,7 @@ export const team: TeamMember[] = [
       },
     {
         label: "X",
-        icon: <FaTwitter size={ 22} />,
+        icon: <FaXTwitter size={ 22} />,
     url: "https://x.com/joelcanih",
       },
 {
