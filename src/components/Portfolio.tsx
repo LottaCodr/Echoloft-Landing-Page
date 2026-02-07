@@ -11,10 +11,32 @@ type CaseStudy = {
   image: string
 }
 
-// Fix the path: prepending slash so it resolves from public folder
+// Paths: resolve from public folder
 const BURGER_IMAGE = "/images/portfolio/Cadadian-Burger-Landing-Page.png"
+const PRIME_IMAGE1 = "/images/portfolio/prime1.PNG"
+const PRIME_IMAGE2 = "/images/portfolio/prime2.png"
 
 const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: "ecoprime-home",
+    title: "Ecoprime Homepage",
+    label: "Web Design",
+    tag: "Industrial Services Website",
+    gradient: "from-[#6ee7b7] via-[#3b82f6] to-[#312e81]",
+    accentText: "text-white",
+    layoutClass: "md:row-span-2",
+    image: PRIME_IMAGE1,
+  },
+  {
+    id: "ecoprime-detail",
+    title: "Ecoprime Features Section",
+    label: "UI/UX Design",
+    tag: "Corporate Landing Page",
+    gradient: "from-[#dbeafe] via-[#a7f3d0] to-[#fef08a]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: PRIME_IMAGE2,
+  },
   {
     id: "canadian-burger",
     title: "Canadian Burger Landing Page",
@@ -22,7 +44,7 @@ const CASE_STUDIES: CaseStudy[] = [
     tag: "Restaurant Website",
     gradient: "from-[#fed7aa] via-[#f97316] to-[#fb7185]",
     accentText: "text-[#0f172a]",
-    layoutClass: "md:row-span-2",
+    layoutClass: "",
     image: BURGER_IMAGE,
   },
   // Example placeholder for other items; real paths and details should reflect real portfolio images.
@@ -36,29 +58,8 @@ const CASE_STUDIES: CaseStudy[] = [
     layoutClass: "",
     image: BURGER_IMAGE,
   },
-  {
-    id: "street-food",
-    title: "Street Food Campaign",
-    label: "Marketing Design",
-    tag: "Web Banner UI",
-    gradient: "from-[#f97316] via-[#ec4899] to-[#6366f1]",
-    accentText: "text-white",
-    layoutClass: "",
-    image: BURGER_IMAGE,
-  },
-  {
-    id: "classic-diner",
-    title: "Classic Diner Homepage",
-    label: "Web Design",
-    tag: "Homepage Mockup",
-    gradient: "from-[#22c55e] via-[#06b6d4] to-[#facc15]",
-    accentText: "text-[#0f172a]",
-    layoutClass: "",
-    image: BURGER_IMAGE,
-  },
 ]
 
-// Electric outline/animation styles using Tailwind + @layer or a custom style below for demo
 const electricOutlineStyle = {
   boxShadow:
     "0 4px 24px 0 rgba(80,0,255,0.15), 0 0 0 3px #a78bfa, 0 0 10px 3px #a5b4fc, 0 0 30px 3px #fdba74",
@@ -95,9 +96,9 @@ const electricOutlineKeyframes = `
 export default function Portfolio() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  // Helper to check if the article is the largest frame
+  // Helper: for Ecoprime homepage feature (make as largest frame demo, like screenshot)
   const isLargestFrame = (item: CaseStudy) =>
-    item.id === "canadian-burger"; // Based on "md:row-span-2"
+    item.id === "ecoprime-home";
 
   return (
     <>
@@ -236,7 +237,6 @@ export default function Portfolio() {
                       </p>
                     </div>
                   </div>
-                  {/* Optional hover overlays and highlights removed as per prompt */}
                 </article>
               )
             })}
