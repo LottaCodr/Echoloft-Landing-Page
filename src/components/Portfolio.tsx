@@ -57,11 +57,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: PRIME_IMAGE2,
   },
   {
-    id: "bakery-delight",
+    id: "ecoprime-detail-2",
     // This image: PRIME_IMAGE1
-    title: "Bakery Delight Homepage",
+    title: "EcoPrime Highlight Section",
     label: "Web Design",
-    tag: "Bakery Landing Page",
+    tag: "Industrial Landing Page",
     gradient: "from-[#fde68a] via-[#fbbf24] to-[#f87171]",
     accentText: "text-[#0f172a]",
     layoutClass: "",
@@ -90,13 +90,13 @@ const CASE_STUDIES: CaseStudy[] = [
     image: BURGER_IMAGE,
   },
   {
-    id: "french-bistro",
+    id: "canadian-bakery",
     // This image: BURGER_IMAGE
-    title: "French Bistro Visual",
-    label: "UI Design",
-    tag: "Landing Page Visual",
-    gradient: "from-[#4c1d95] via-[#7c3aed] to-[#22c55e]",
-    accentText: "text-white",
+    title: "Canadian Bakery Website",
+    label: "Web Design",
+    tag: "Canadian Bakery Website",
+    gradient: "from-[#fde68a] via-[#a7f3d0] to-[#3b82f6]",
+    accentText: "text-[#0f172a]",
     layoutClass: "",
     image: BURGER_IMAGE,
   }
