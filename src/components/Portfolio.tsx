@@ -100,9 +100,9 @@ const CASE_STUDIES: CaseStudy[] = [
   // --- WapMentors new entries ---
   {
     id: "wapmentors-main",
-    title: "WapMentors Main Platform",
-    label: "Web Application",
-    tag: "Mentorship Platform",
+    title: "WapMentors Mentorship Website",
+    label: "UI/UX Design",
+    tag: "Mentorship Website Design",
     gradient: "from-[#a7f3d0] via-[#3b82f6] to-[#fdba74]",
     accentText: "text-[#0f172a]",
     layoutClass: "",
@@ -110,9 +110,9 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "wapmentors-dashboard",
-    title: "WapMentors Dashboard",
-    label: "UI Dashboard",
-    tag: "Mentors Dashboard",
+    title: "WapMentors Mentor Dashboard",
+    label: "UI Design",
+    tag: "Mentorship Platform Dashboard",
     gradient: "from-[#dbeafe] via-[#fbbf24] to-[#f87171]",
     accentText: "text-[#0f172a]",
     layoutClass: "",
@@ -120,9 +120,9 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "wapmentors-book",
-    title: "WapMentors Booking Page",
-    label: "Booking System",
-    tag: "Appointment Booking",
+    title: "WapMentors Booking Experience",
+    label: "Web Application",
+    tag: "Mentorship Session Booking",
     gradient: "from-[#fde68a] via-[#a7f3d0] to-[#3b82f6]",
     accentText: "text-[#0f172a]",
     layoutClass: "",
