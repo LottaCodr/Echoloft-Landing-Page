@@ -16,25 +16,24 @@ const faqData: FAQItem[] = [
         question: "How long does it take to build my website?",
         answer: (
             <>
-                Most websites are completed within <b>4 days</b>.
-
-                {/* Timelines depend on project complexity and how quickly content and feedback are provided. */}
+                Website takes 4 working days to complete.
             </>
         ),
     },
-    // {
-    //     question: "Do I need any technical skills to manage my website?",
-    //     answer: (
-    //         <>
-    //             <b>No technical skills required.</b> Your site is built with a user-friendly CMS, so you can make updates easily with no coding necessary.
-    //         </>
-    //     ),
-    // },
     {
         question: "What if I don't have a logo?",
         answer: (
             <>
-                That’s not a problem! <b>We’ll design a professional logo for you at no extra cost</b> to help your business stand out from the start.
+                No problem! As part of your package, we'll design a professional logo for your business at no extra cost if you don't already have one.
+            </>
+        ),
+    },
+    {
+        question: "Does this package cover e-commerce?",
+        answer: (
+            <>
+                No, in as much as we can make e-commerce websites, this package doesn’t include it.<br />
+                This is just for small businesses
             </>
         ),
     },
@@ -42,23 +41,8 @@ const faqData: FAQItem[] = [
         question: "Can I sell products on my website?",
         answer: (
             <>
-                Absolutely. <b>E-commerce features</b> can be added based on your needs and budget. Let us know your requirements and we’ll tailor a solution.
-            </>
-        ),
-    },
-    {
-        question: "What happens after the first year?",
-        answer: (
-            <>
-                <b>Annual renewal for hosting & domain</b> applies after your first year. We’ll remind you well in advance and help ensure your website stays online.
-            </>
-        ),
-    },
-    {
-        question: "Can I upgrade my website later?",
-        answer: (
-            <>
-                Of course. <b>Your website grows with your business</b>—you can add new features or pages at any time.
+                Yes! If we add e-commerce functionality to your website, that can allow you to sell products online. However, this package doesn’t include it.<br />
+                This is just for small businesses
             </>
         ),
     },
