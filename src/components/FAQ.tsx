@@ -55,7 +55,8 @@ export default function FAQ() {
                 Frequently Asked Questions
             </h2>
             <Accordion
-                type="multiple"
+                type="single"
+                collapsible
                 className="w-full space-y-3 "
             >
                 {faqData.map((faq, index) => (
