@@ -16,18 +16,20 @@ const faqData: FAQItem[] = [
         question: "How long does it take to build my website?",
         answer: (
             <>
-                Most websites are completed within <b>7–14 business days</b>. Timelines depend on project complexity and how quickly content and feedback are provided.
+                Most websites are completed within <b>4 days</b>.
+
+                {/* Timelines depend on project complexity and how quickly content and feedback are provided. */}
             </>
         ),
     },
-    {
-        question: "Do I need any technical skills to manage my website?",
-        answer: (
-            <>
-                <b>No technical skills required.</b> Your site is built with a user-friendly CMS, so you can make updates easily with no coding necessary.
-            </>
-        ),
-    },
+    // {
+    //     question: "Do I need any technical skills to manage my website?",
+    //     answer: (
+    //         <>
+    //             <b>No technical skills required.</b> Your site is built with a user-friendly CMS, so you can make updates easily with no coding necessary.
+    //         </>
+    //     ),
+    // },
     {
         question: "What if I don't have a logo?",
         answer: (
