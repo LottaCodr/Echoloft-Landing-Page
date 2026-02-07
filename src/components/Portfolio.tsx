@@ -1,4 +1,12 @@
 import React, { useState } from "react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { CaseStudyGrid } from "./CaseStudy"
 
 type CaseStudy = {
   id: string
@@ -11,15 +19,25 @@ type CaseStudy = {
   image: string
 }
 
+type Props = {
+  data: CaseStudy[]
+  hoveredId: string | null
+  setHoveredId: (id: string | null) => void
+  isLargestFrame: (item: CaseStudy) => boolean
+  electricOutlineStyle: React.CSSProperties
+}
+
 // Paths: resolve from public folder
 const BURGER_IMAGE = "/images/portfolio/Cadadian-Burger-Landing-Page.png"
 const PRIME_IMAGE1 = "/images/portfolio/prime1.PNG"
 const PRIME_IMAGE2 = "/images/portfolio/prime2.png"
 
 const CASE_STUDIES: CaseStudy[] = [
+  // Grouped: All "Prime" images together, then all "Canadian"/"Burger" images together
   {
     id: "ecoprime-home",
-    title: "Ecoprime Homepage",
+    // This image: PRIME_IMAGE1
+    title: "Prime One Homepage",
     label: "Web Design",
     tag: "Industrial Services Website",
     gradient: "from-[#6ee7b7] via-[#3b82f6] to-[#312e81]",
@@ -29,7 +47,8 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "ecoprime-detail",
-    title: "Ecoprime Features Section",
+    // This image: PRIME_IMAGE2
+    title: "Prime Two Features",
     label: "UI/UX Design",
     tag: "Corporate Landing Page",
     gradient: "from-[#dbeafe] via-[#a7f3d0] to-[#fef08a]",
@@ -38,7 +57,30 @@ const CASE_STUDIES: CaseStudy[] = [
     image: PRIME_IMAGE2,
   },
   {
+    id: "bakery-delight",
+    // This image: PRIME_IMAGE1
+    title: "Bakery Delight Homepage",
+    label: "Web Design",
+    tag: "Bakery Landing Page",
+    gradient: "from-[#fde68a] via-[#fbbf24] to-[#f87171]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: PRIME_IMAGE1,
+  },
+  {
+    id: "canadian-feature",
+    // This image: BURGER_IMAGE
+    title: "Canadian Feature Section",
+    label: "UI Design",
+    tag: "Restaurant Booking Platform",
+    gradient: "from-[#fed7aa] via-[#f97316] to-[#fb7185]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: BURGER_IMAGE,
+  },
+  {
     id: "canadian-burger",
+    // This image: BURGER_IMAGE
     title: "Canadian Burger Landing Page",
     label: "Web Design",
     tag: "Restaurant Website",
@@ -47,17 +89,21 @@ const CASE_STUDIES: CaseStudy[] = [
     layoutClass: "",
     image: BURGER_IMAGE,
   },
-  // Example placeholder for other items; real paths and details should reflect real portfolio images.
   {
     id: "french-bistro",
-    title: "French Bistro Promo",
+    // This image: BURGER_IMAGE
+    title: "French Bistro Visual",
     label: "UI Design",
     tag: "Landing Page Visual",
     gradient: "from-[#4c1d95] via-[#7c3aed] to-[#22c55e]",
     accentText: "text-white",
     layoutClass: "",
     image: BURGER_IMAGE,
-  },
+  }
+]
+const slides: CaseStudy[][] = [
+  CASE_STUDIES.slice(0, 3),
+  CASE_STUDIES.slice(3, 6),
 ]
 
 const electricOutlineStyle = {
@@ -165,82 +211,24 @@ export default function Portfolio() {
             Our Works Describes Us
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-2 auto-rows-[220px] md:auto-rows-[260px]">
-            {CASE_STUDIES.map((item) => {
-              const isBig = isLargestFrame(item);
-              return (
-                <article
-                  key={item.id}
-                  className={`relative overflow-hidden rounded-3xl shadow-xl group transition-shadow duration-300 ease-out transform group-hover:shadow-2xl hover:scale-[1.035] hover:-translate-y-1 ${item.layoutClass}`}
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.12), rgba(15,23,42,0.25)), url(${item.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    transition: 'box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1)',
-                    cursor: 'pointer'
-                  }}
-                  onMouseEnter={() => setHoveredId(item.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                  tabIndex={0}
-                  onFocus={() => setHoveredId(item.id)}
-                  onBlur={() => setHoveredId(null)}
-                  aria-label={`Case Study: ${item.title}`}
-                >
-                  {/* Electric "neon" animated outline on hover */}
-                  <div
-                    className="absolute inset-0 pointer-events-none rounded-3xl transition-all duration-300 opacity-0 group-hover:opacity-100"
-                    style={electricOutlineStyle}
+          <Carousel className="relative">
+            <CarouselContent>
+              {slides.map((group, index) => (
+                <CarouselItem key={index}>
+                  <CaseStudyGrid
+                    data={group}
+                    hoveredId={hoveredId}
+                    setHoveredId={setHoveredId}
+                    isLargestFrame={isLargestFrame}
+                    electricOutlineStyle={electricOutlineStyle}
                   />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
 
-                  {/* On hover: display image as a visible img, on non-hover just a background */}
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity transition-transform duration-700 z-10 pointer-events-none ${
-                      hoveredId === item.id
-                        ? "opacity-100 scale-105"
-                        : "opacity-0 scale-100"
-                    }`}
-                    aria-hidden="true"
-                    draggable={false}
-                    style={{
-                      willChange: "transform, opacity, objectPosition",
-                      objectPosition:
-                        isBig && hoveredId === item.id
-                          ? "top"
-                          : "center"
-                    }}
-                  />
-
-                  {/* Gradient overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-80 group-hover:opacity-90 transition-opacity duration-500`}
-                  />
-
-                  {/* Glass darkener for readability */}
-                  <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
-
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-between p-6 md:p-7 z-30">
-                    <div className="flex-1" />
-                    <div className="space-y-1">
-                      <p className="portfolio-label text-xs font-medium uppercase tracking-[0.18em] text-white/80">
-                        {item.label}
-                      </p>
-                      <h3
-                        className={`portfolio-tag text-lg md:text-xl font-semibold ${item.accentText}`}
-                      >
-                        {item.tag}
-                      </h3>
-                      <p className="portfolio-title text-sm font-medium text-white/90">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              )
-            })}
-          </div>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
 
           <div className="mt-10 flex justify-center">
           </div>
