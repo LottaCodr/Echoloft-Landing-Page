@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { CaseStudyGrid } from "./CaseStudy"
+import { motion, AnimatePresence } from "framer-motion"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 type CaseStudy = {
   id: string
@@ -31,12 +31,14 @@ type Props = {
 const BURGER_IMAGE = "/images/portfolio/Cadadian-Burger-Landing-Page.png"
 const PRIME_IMAGE1 = "/images/portfolio/prime1.PNG"
 const PRIME_IMAGE2 = "/images/portfolio/prime2.png"
+const WAPMENTORS1 = "/images/portfolio/wapmentors1.png"
+const WAPMENTORS2 = "/images/portfolio/wapmentors2.png"
+const WAPMENTORS3 = "/images/portfolio/wapmentors3.png"
 
 const CASE_STUDIES: CaseStudy[] = [
-  // Grouped: All "Prime" images together, then all "Canadian"/"Burger" images together
+  // Grouped: "Prime", "Canadian"/"Burger", then "WapMentors"
   {
     id: "ecoprime-home",
-    // This image: PRIME_IMAGE1
     title: "Prime One Homepage",
     label: "Web Design",
     tag: "Industrial Services Website",
@@ -47,7 +49,6 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "ecoprime-detail",
-    // This image: PRIME_IMAGE2
     title: "Prime Two Features",
     label: "UI/UX Design",
     tag: "Corporate Landing Page",
@@ -58,7 +59,6 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "ecoprime-detail-2",
-    // This image: PRIME_IMAGE1
     title: "EcoPrime Highlight Section",
     label: "Web Design",
     tag: "Industrial Landing Page",
@@ -69,7 +69,6 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "canadian-feature",
-    // This image: BURGER_IMAGE
     title: "Canadian Feature Section",
     label: "UI Design",
     tag: "Restaurant Booking Platform",
@@ -80,7 +79,6 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "canadian-burger",
-    // This image: BURGER_IMAGE
     title: "Canadian Burger Landing Page",
     label: "Web Design",
     tag: "Restaurant Website",
@@ -91,7 +89,6 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "canadian-bakery",
-    // This image: BURGER_IMAGE
     title: "Canadian Bakery Website",
     label: "Web Design",
     tag: "Canadian Bakery Website",
@@ -99,11 +96,44 @@ const CASE_STUDIES: CaseStudy[] = [
     accentText: "text-[#0f172a]",
     layoutClass: "",
     image: BURGER_IMAGE,
-  }
+  },
+  // --- WapMentors new entries ---
+  {
+    id: "wapmentors-main",
+    title: "WapMentors Main Platform",
+    label: "Web Application",
+    tag: "Mentorship Platform",
+    gradient: "from-[#a7f3d0] via-[#3b82f6] to-[#fdba74]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: WAPMENTORS1,
+  },
+  {
+    id: "wapmentors-dashboard",
+    title: "WapMentors Dashboard",
+    label: "UI Dashboard",
+    tag: "Mentors Dashboard",
+    gradient: "from-[#dbeafe] via-[#fbbf24] to-[#f87171]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: WAPMENTORS2,
+  },
+  {
+    id: "wapmentors-book",
+    title: "WapMentors Booking Page",
+    label: "Booking System",
+    tag: "Appointment Booking",
+    gradient: "from-[#fde68a] via-[#a7f3d0] to-[#3b82f6]",
+    accentText: "text-[#0f172a]",
+    layoutClass: "",
+    image: WAPMENTORS3,
+  },
 ]
+
 const slides: CaseStudy[][] = [
   CASE_STUDIES.slice(0, 3),
   CASE_STUDIES.slice(3, 6),
+  CASE_STUDIES.slice(6, 9)
 ]
 
 const electricOutlineStyle = {
@@ -139,12 +169,69 @@ const electricOutlineKeyframes = `
 }
 `
 
+const variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 400 : -400,
+    opacity: 0,
+    position: "absolute" as const,
+  }),
+  center: { x: 0, opacity: 1, position: "relative" as const },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -400 : 400,
+    opacity: 0,
+    position: "absolute" as const,
+  }),
+}
+
 export default function Portfolio() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [current, setCurrent] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const autoSlideInterval = 7500 // ms, slower than previous 4500
+  const timerRef = useRef<number | null>(null)
 
   // Helper: for Ecoprime homepage feature (make as largest frame demo, like screenshot)
   const isLargestFrame = (item: CaseStudy) =>
     item.id === "ecoprime-home";
+
+  useEffect(() => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    timerRef.current = window.setTimeout(() => {
+      slideTo((current + 1) % slides.length, 1)
+    }, autoSlideInterval)
+    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [current])
+
+  function slideTo(idx: number, slideDirection: number) {
+    setDirection(slideDirection)
+    setCurrent(idx)
+  }
+  function handlePrev() {
+    slideTo((current - 1 + slides.length) % slides.length, -1)
+  }
+  function handleNext() {
+    slideTo((current + 1) % slides.length, 1)
+  }
+
+  // Style for the icon buttons using --color-primary from global CSS vars
+  const navBtnStyle: React.CSSProperties = {
+    background: "var(--color-background)",
+    color: "var(--color-primary)",
+    border: "none",
+    outline: "none",
+    borderRadius: "9999px",
+    padding: "0.6rem 0.83rem",
+    fontSize: 22,
+    boxShadow: "0 2px 8px rgb(31 122 63 / 9%)",
+    transition: "box-shadow 0.18s, background 0.18s",
+    cursor: "pointer",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 2,
+    opacity: 0.97,
+  }
 
   return (
     <>
@@ -211,24 +298,66 @@ export default function Portfolio() {
             Our Works Describes Us
           </h2>
 
-          <Carousel className="relative">
-            <CarouselContent>
-              {slides.map((group, index) => (
-                <CarouselItem key={index}>
-                  <CaseStudyGrid
-                    data={group}
-                    hoveredId={hoveredId}
-                    setHoveredId={setHoveredId}
-                    isLargestFrame={isLargestFrame}
-                    electricOutlineStyle={electricOutlineStyle}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+          <div className="px-4 md:px-8">
+            <Carousel className="relative">
+              {/* AnimatePresence needed for framer-motion slide */}
+              <AnimatePresence custom={direction} initial={false}>
+                <motion.div
+                  key={current}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: {
+                      type: "spring",
+                      stiffness: 140,
+                      damping: 34,
+                      mass: 1.0,
+                    },
+                    opacity: { duration: 0.38, ease: "easeInOut" }
+                  }}
+                  style={{ minHeight: '1px', width: "100%", position: "relative", }}
+                >
+                  <CarouselContent>
+                    <CarouselItem>
+                      <CaseStudyGrid
+                        data={slides[current]}
+                        hoveredId={hoveredId}
+                        setHoveredId={setHoveredId}
+                        isLargestFrame={isLargestFrame}
+                        electricOutlineStyle={electricOutlineStyle}
+                      />
+                    </CarouselItem>
+                  </CarouselContent>
+                </motion.div>
+              </AnimatePresence>
+              {/* Carousel controls as React Icons with --color-primary */}
+              <button
+                type="button"
+                aria-label="Previous"
+                onClick={handlePrev}
+                style={{
+                  ...navBtnStyle,
+                  left: "-1.6rem",
+                }}
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                type="button"
+                aria-label="Next"
+                onClick={handleNext}
+                style={{
+                  ...navBtnStyle,
+                  right: "-1.6rem",
+                }}
+              >
+                <FaChevronRight />
+              </button>
+            </Carousel>
+          </div>
 
           <div className="mt-10 flex justify-center">
           </div>
