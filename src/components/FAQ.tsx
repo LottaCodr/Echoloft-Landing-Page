@@ -5,6 +5,7 @@ import {
     AccordionTrigger,
     AccordionContent,
 } from "@/components/ui/accordion"
+import { motion } from "motion/react"
 
 type FAQItem = {
     question: string
@@ -24,7 +25,7 @@ const faqData: FAQItem[] = [
         question: "What if I don't have a logo?",
         answer: (
             <>
-                No problem! As part of your package, we'll design a professional logo for your business at no extra cost if you don't already have one.
+                No problem! As part of your package, we&apos;ll design a professional logo for your business at no extra cost if you don&apos;t already have one.
             </>
         ),
     },
@@ -32,8 +33,7 @@ const faqData: FAQItem[] = [
         question: "Does this package cover e-commerce?",
         answer: (
             <>
-                No, in as much as we can make e-commerce websites, this package doesn’t include it.<br />
-                This is just for small businesses
+                No, in as much as we can make e-commerce websites, this package doesn&apos;t include it. This is just for small businesses.
             </>
         ),
     },
@@ -41,8 +41,7 @@ const faqData: FAQItem[] = [
         question: "Can I sell products on my website?",
         answer: (
             <>
-                Yes! If we add e-commerce functionality to your website, that can allow you to sell products online. However, this package doesn’t include it.<br />
-                This is just for small businesses
+                Yes! If we add e-commerce functionality to your website, that can allow you to sell products online. However, this package doesn&apos;t include it. This is just for small businesses.
             </>
         ),
     },
@@ -51,24 +50,42 @@ const faqData: FAQItem[] = [
 export default function FAQ() {
     return (
         <section id="faq" className="max-w-2xl mx-auto mt-16 mb-24 px-4">
-            <h2 className="text-3xl text-[var(--color-primary)] md:text-4xl font-bold text-center mb-8">
-                Frequently Asked Questions
-            </h2>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-8"
+                    style={{ color: "var(--color-primary)" }}>
+                    Frequently Asked Questions
+                </h2>
+            </motion.div>
             <Accordion
                 type="single"
                 collapsible
-                className="w-full space-y-3 "
+                className="w-full space-y-3"
             >
                 {faqData.map((faq, index) => (
                     <AccordionItem
                         key={index}
                         value={`item-${index}`}
-                        className="border border-[var(--color-border)] rounded-xl bg-[var(--color-primary)] shadow-sm overflow-hidden"
+                        className="border-2 rounded-xl shadow-sm overflow-hidden"
+                        style={{
+                            borderColor: "var(--color-border)",
+                            backgroundColor: "var(--color-background)",
+                        }}
                     >
-                        <AccordionTrigger className="text-base md:text-lg font-medium px-4 py-2 focus:outline-none bg-[var(--color-primary)] text-white">
+                        <AccordionTrigger
+                            className="text-base md:text-lg font-semibold px-5 py-4 focus:outline-none text-left"
+                            style={{ color: "var(--color-text)" }}
+                        >
                             {faq.question}
                         </AccordionTrigger>
-                        <AccordionContent className="text-gray-100 px-4 pb-4 pt-2 leading-relaxed">
+                        <AccordionContent
+                            className="px-5 pb-4 pt-0 leading-relaxed"
+                            style={{ color: "var(--color-text-muted)" }}
+                        >
                             {faq.answer}
                         </AccordionContent>
                     </AccordionItem>

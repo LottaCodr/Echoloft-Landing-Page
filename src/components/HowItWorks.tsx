@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { MessageCircle, Paintbrush, Rocket } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -60,7 +61,7 @@ export default function HowItWorks({ onOpenBooking }: HowItWorksProps) {
                 <span className="text-3xl font-bold text-blue-600">1</span>
               </div>
               <div className="absolute top-0 right-0 -mt-4 -mr-4">
-                <i className="fas fa-comments text-blue-600 text-3xl"></i>
+                <MessageCircle className="text-blue-600 w-8 h-8" />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Consultation</h3>
@@ -77,7 +78,7 @@ export default function HowItWorks({ onOpenBooking }: HowItWorksProps) {
                 <span className="text-3xl font-bold text-purple-600">2</span>
               </div>
               <div className="absolute top-0 right-0 -mt-4 -mr-4">
-                <i className="fas fa-paint-brush text-purple-600 text-3xl"></i>
+                <Paintbrush className="text-purple-600 w-8 h-8" />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Design & Development</h3>
@@ -94,7 +95,7 @@ export default function HowItWorks({ onOpenBooking }: HowItWorksProps) {
                 <span className="text-3xl font-bold text-green-600">3</span>
               </div>
               <div className="absolute top-0 right-0 -mt-4 -mr-4">
-                <i className="fas fa-rocket text-green-600 text-3xl"></i>
+                <Rocket className="text-green-600 w-8 h-8" />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Launch</h3>
