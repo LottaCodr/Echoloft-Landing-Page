@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "motion/react"
+import { Star } from "lucide-react"
 
 type HeroProps = {
   onOpenBooking?: () => void
@@ -102,12 +103,12 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
               </div>
               <div className="ml-4">
-                <div className="flex text-yellow-400">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
+                <div className="flex text-yellow-400 gap-0.5">
+                  <Star className="w-4 h-4 fill-yellow-400" />
+                  <Star className="w-4 h-4 fill-yellow-400" />
+                  <Star className="w-4 h-4 fill-yellow-400" />
+                  <Star className="w-4 h-4 fill-yellow-400" />
+                  <Star className="w-4 h-4 fill-yellow-400" />
                 </div>
                 <p
                   className="text-sm"

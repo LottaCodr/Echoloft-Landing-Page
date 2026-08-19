@@ -5,7 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 import { CaseStudyGrid } from "./CaseStudy"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 type CaseStudy = {

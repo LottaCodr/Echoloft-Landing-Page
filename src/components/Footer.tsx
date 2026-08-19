@@ -18,13 +18,13 @@ const COLORS = {
   accent: "var(--color-accent)",
   secondary: "var(--color-secondary)",
   white: "#fff",
-  gray800: "#1e293b", // fallback, not used directly (prefer Tailwind class)
+  gray800: "#1e293b",
   bg: "var(--color-background)",
   text: "var(--color-text)",
-  textMuted: "var(--color-text-muted)",
-  border: "var(--color-border)",
-  redHeart: "#ef4444", // from tailwind red-500, fallback
-  blue: "#3b82f6", // for phone and email icon (tailwind blue-400)
+  textMuted: "#94a3b8",    // slate-400 — visible on black backgrounds
+  border: "rgba(255,255,255,0.12)",
+  redHeart: "#ef4444",
+  blue: "#3b82f6",
 };
 
 const socialLinks = [
