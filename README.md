@@ -50,7 +50,7 @@ The previous section components in `src/components/` are retained but are no lon
 - Industry-filtered portfolio with keyboard-accessible tabs.
 - Project-detail dialogs showing the original portfolio work.
 - Consultation dialog linking to the existing Calendly booking page.
-- Existing WhatsApp, email, telephone and social links.
+- Persistent floating WhatsApp shortcut on desktop and mobile, plus existing inline WhatsApp, email, telephone and social links.
 - Contact form with required-field validation and an encoded email draft.
 - Expandable FAQ.
 

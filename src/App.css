@@ -3854,3 +3854,76 @@ h1 .serif-word {
     font-size: 37px;
   }
 }
+
+/* Persistent contact access; stays beneath the Radix modal overlay (z-index 100). */
+.floating-whatsapp {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  background: #187441;
+  color: #fff;
+  box-shadow: 0 4px 18px #12351e30;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+.floating-whatsapp:hover {
+  background: #125c33;
+  box-shadow: 0 6px 22px #12351e40;
+}
+.floating-whatsapp:focus-visible {
+  outline: 3px solid #225c3c;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px #fcfcf8;
+}
+.floating-whatsapp > svg {
+  width: 29px;
+  height: 29px;
+}
+.floating-whatsapp-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: #234732;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+.floating-whatsapp:focus-visible .floating-whatsapp-label {
+  opacity: 1;
+  visibility: visible;
+}
+@media (hover: hover) {
+  .floating-whatsapp:hover .floating-whatsapp-label {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/* Leave room at the end of the page so the fixed shortcut cannot cover footer text. */
+.footer {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+@media (max-width: 700px) {
+  .floating-whatsapp {
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 52px;
+    height: 52px;
+  }
+  .floating-whatsapp > svg {
+    width: 27px;
+    height: 27px;
+  }
+}

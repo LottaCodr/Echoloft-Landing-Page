@@ -115,7 +115,8 @@ The recognition-over-recall heuristic recommends making required information vis
 
 ### Interaction decisions
 
-- **Sticky header:** Keep the key sections and consultation action accessible without a large intrusive widget.
+- **Sticky header:** Keep key sections and the consultation action accessible.
+- **Persistent WhatsApp shortcut (restored after owner feedback):** A fixed, keyboard-accessible contact button remains available on desktop and mobile. It reuses the existing contact destination, respects mobile safe areas, and sits below modal overlays. No unsolicited chat popup or continuous animation is added.
 - **One primary CTA family:** Repeated green buttons start the same consultation flow. Secondary actions browse work or ask questions.
 - **Portfolio tabs:** Radix keyboard semantics; no horizontal-scroll dependency on mobile; all three projects visible by default.
 - **Project dialogs:** View the supplied portfolio screenshots without falsely implying the screenshot is a live website.
@@ -202,3 +203,37 @@ Run five short, moderated sessions with target business owners on mobile. Ask th
 Observe comprehension, hesitation, accidental navigation and successful task completion. Do not substitute preference questions for task observation.
 
 With consent-appropriate analytics, measure consultation clicks, Calendly completions where integration permits, WhatsApp exits, portfolio engagement and pricing/FAQ engagement. Establish a baseline before judging conversion uplift. A useful first experiment is whether a literal “Professional websites for Nigerian small businesses” headline improves comprehension relative to the more editorial hero, keeping the offer and CTA otherwise unchanged.
+
+
+## 10. Follow-up: section omissions and WhatsApp restoration
+
+The owner requested that the floating WhatsApp shortcut be restored. It is now part of the active page. Its initial removal was a design judgment to reduce competing actions, not a conclusion supported by user testing. Inline links were not equivalent to persistent contact access.
+
+### What “removed as standalone sections” means
+
+The old `Benefits.tsx` and `WhoWeHelp.tsx` files remain in the repository, but the redesigned `App.jsx` does not mount them. Visitors therefore no longer see the separate “Why Your Business Needs a Website” or “Who We Help” blocks. Some related messaging appears elsewhere; this was **not** a complete migration of their content.
+
+### Benefits: intention and actual coverage
+
+The intent was to reduce repeated card grids, move examples earlier, and put outcomes near the relevant deliverables. That is a design hypothesis, not evidence that a shorter page converts better. Importantly, an inclusion answers “What do I get?” while a benefit answers “Why is it valuable?” Combining them only works when both answers remain explicit.
+
+| Original benefit | Current coverage |
+| --- | --- |
+| Reach More Customers | Partially retained through “Get found. Get growing.” and basic SEO messaging; the 24/7 and beyond-local-area points are not explicit. |
+| Increase Sales | Professional presentation/first impressions remain, but the original trust-to-sales explanation is not explicit. |
+| Compete with Big Brands | The small-business/big-ambitions theme remains; the competitive-positioning explanation was not retained explicitly. |
+| Save Time | The original point about answering customers’ common questions was not carried over. “We handle the website” describes a different benefit. |
+| Easy to Share | Not carried over explicitly. Having WhatsApp contact links is not equivalent to explaining how the customer's own website can be shared. |
+| Track Your Success | Not carried over. Analytics should not be reintroduced as a package promise without confirming that setup is included. |
+
+A more balanced approach would be a compact, separately titled benefits section describing business outcomes, rather than restoring the old six-card styling unchanged. Removing an unverified sales guarantee does not require removing all discussion of potential benefits.
+
+### Who We Help: intention and actual coverage
+
+The intent was to communicate audience fit through the hero's Nigerian-small-business positioning and concrete portfolio examples, rather than another generic category grid. The old mobile section also automatically rotated categories every 2.5 seconds. That interaction could have been replaced with a static responsive layout without removing the audience content.
+
+The original eight categories were **Retail Stores; Restaurants & Cafes; Schools & Tutors; Service Providers; Photographers; Health & Wellness; Professionals; Non-Profits**. The new portfolio filters describe three project groupings: food/hospitality, business/services, and education/community. Those filters are **not a replacement for all eight audience categories**. Some prospective customers may no longer see themselves explicitly represented.
+
+A compact “Who we help” section with industry examples and relevant use cases would restore that reassurance without autoplay or excessive page length. Any retail examples should distinguish a business/catalogue website from the separately quoted e-commerce offering.
+
+**Scope of this follow-up:** restore the floating WhatsApp shortcut, test it, and clarify the rationale and omissions. Benefits and Who We Help have not silently been restored or otherwise changed in this follow-up.

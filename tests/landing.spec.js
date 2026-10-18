@@ -231,3 +231,66 @@ test("reduced motion preference disables smooth scrolling", async ({
       .evaluate((html) => getComputedStyle(html).scrollBehavior),
   ).toBe("auto");
 });
+
+for (const width of [320, 390, 1440]) {
+  test(`floating WhatsApp stays accessible while scrolling at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    const shortcut = page.getByRole("link", {
+      name: "Chat with us on WhatsApp (opens in a new tab)",
+      exact: true,
+    });
+    await expect(shortcut).toBeVisible();
+    await expect(shortcut).toHaveAttribute(
+      "href",
+      /^https:\/\/wa\.me\/2348130923309\?text=/,
+    );
+    await expect(shortcut).toHaveAttribute("target", "_blank");
+    await expect(shortcut).toHaveAttribute("rel", "noopener noreferrer");
+    const initial = await shortcut.boundingBox();
+    expect(initial.width).toBeGreaterThanOrEqual(44);
+    expect(initial.height).toBeGreaterThanOrEqual(44);
+    expect(initial.x + initial.width).toBeLessThanOrEqual(width - 16);
+    await page.locator("footer").scrollIntoViewIfNeeded();
+    await expect(shortcut).toBeInViewport();
+    expect(await shortcut.boundingBox()).toEqual(initial);
+    await shortcut.focus();
+    await expect(shortcut).toBeFocused();
+    expect(
+      await shortcut.evaluate((link) => getComputedStyle(link).outlineStyle),
+    ).toBe("solid");
+    await expect(shortcut.locator(".floating-whatsapp-label")).toBeVisible();
+  });
+}
+
+test("floating WhatsApp does not compete with an open dialog", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Let’s talk", exact: true }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  // Radix hides background content from assistive technology and blocks pointer interaction.
+  await expect(
+    page.getByRole("link", {
+      name: "Chat with us on WhatsApp (opens in a new tab)",
+      exact: true,
+    }),
+  ).toHaveCount(0);
+  const shortcut = page.locator(".floating-whatsapp");
+  const shortcutZ = await shortcut.evaluate((link) =>
+    Number(getComputedStyle(link).zIndex),
+  );
+  const overlayZ = await page
+    .locator(".dialog-overlay")
+    .evaluate((overlay) => Number(getComputedStyle(overlay).zIndex));
+  expect(shortcutZ).toBeLessThan(overlayZ);
+  await page.keyboard.press("Escape");
+  await expect(
+    page.getByRole("link", {
+      name: "Chat with us on WhatsApp (opens in a new tab)",
+      exact: true,
+    }),
+  ).toBeVisible();
+});

@@ -8,6 +8,7 @@ import Pricing from "./components/landing/Pricing";
 import Team from "./components/landing/Team";
 import FAQ from "./components/landing/FAQ";
 import Footer from "./components/landing/Footer";
+import FloatingWhatsApp from "./components/landing/FloatingWhatsApp";
 import ConsultationDialog from "./components/landing/ConsultationDialog";
 import ContactDialog from "./components/landing/ContactDialog";
 import ProjectDialog from "./components/landing/ProjectDialog";
@@ -55,6 +56,7 @@ export default function App() {
         <FAQ onContact={openContact} />
       </main>
       <Footer onBooking={openBooking} onContact={openContact} />
+      <FloatingWhatsApp />
       <ConsultationDialog
         open={bookingOpen}
         onOpenChange={(value) => {
