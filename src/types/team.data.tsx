@@ -12,7 +12,7 @@ export const team: TeamMember[] = [
     {
         name: "Joel C. Anih",
         role: "UI/UX Designer",
-        image: "/images/team/joel.png",
+        image: "/images/team/joel.webp",
         socials: [
             {
                 label: "Instagram",
@@ -34,7 +34,7 @@ export const team: TeamMember[] = [
 {
     name: "Engr. Lotanna C. Iwuanyanwu",
         role: "Software Engineer",
-            image: "/images/team/lotta.png",
+            image: "/images/team/lotta.webp",
                 socials: [
                     {
                         label: "Instagram",
@@ -51,7 +51,7 @@ export const team: TeamMember[] = [
 {
     name: "Noble Nnamani",
         role: "Brand Designer",
-            image: "/images/team/noble.png",
+            image: "/images/team/noble.webp",
                 socials: [
                     {
                         label: "Instagram",

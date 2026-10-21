@@ -29,8 +29,8 @@ export function TeamCard({ member }: Props) {
             <motion.div
                 variants={avatarVariants}
                 className="
-          absolute -top-14 left-1/2 -translate-x-1/2
-          w-28 h-28 rounded-full flex items-center justify-center
+          absolute -top-16 left-1/2 -translate-x-1/2
+          w-32 h-32 rounded-full flex items-center justify-center
         "
                 style={{
                     background:
@@ -41,7 +41,7 @@ export function TeamCard({ member }: Props) {
                     src={member.image}
                     alt={member.name}
                     className="
-            w-24 h-24 rounded-full object-cover
+            w-28 h-28 rounded-full object-cover
             border-4
           "
                     style={{ borderColor: "var(--color-border)" }}
