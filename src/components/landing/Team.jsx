@@ -51,7 +51,7 @@ export default function Team() {
             >
               <div className={`team-image team-${person.image}`}>
                 <img
-                  src={`/images/optimized/${person.image}.webp`}
+                  src={`/images/optimized/${person.image}.png`}
                   alt={person.name}
                   loading="lazy"
                   width="520"
