@@ -39,7 +39,7 @@ Tests include responsive layouts, keyboard navigation, portfolio filtering, dial
 - `src/components/ui/` — shadcn-style Button, Accordion, Dialog and Tabs backed by Radix primitives where applicable.
 - `src/index.css` — fonts, theme tokens, base rules and accessibility defaults.
 - `src/App.css` — landing-page layout, visual system and responsive styles.
-- `public/images/optimized/` — locally optimized WebP copies of existing images; originals are retained.
+- `public/images/optimized/` — locally optimized WebP images, including AI-restored high-resolution team portraits based on the original photos; source team PNGs are retained in `public/images/team/`.
 - `docs/UI-UX-RESEARCH.md` — audit, Figma Community reference comparison, design rationale, evidence limits and follow-up research plan.
 
 The previous section components in `src/components/` are retained but are no longer mounted by the redesigned application. Tailwind scans the active landing components and shared UI directory.

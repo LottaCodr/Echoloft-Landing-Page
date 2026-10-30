@@ -6,19 +6,22 @@ export default function Team() {
     {
       name: "Joel C. Anih",
       role: "UI/UX Designer",
-      image: "joel",
+      imageKey: "joel",
+      image: "/images/optimized/joel.webp",
       href: "https://www.linkedin.com/in/joel-anih-70655214b",
     },
     {
       name: "Lotanna C. Iwuanyanwu",
       role: "Software Engineer",
-      image: "lotta",
+      imageKey: "lotta",
+      image: "/images/optimized/lotta.webp",
       href: "https://www.linkedin.com/in/lotanna-chuka-4075591b3",
     },
     {
       name: "Noble Nnamani",
       role: "Brand Designer",
-      image: "noble",
+      imageKey: "noble",
+      image: "/images/optimized/noble.webp",
       href: "https://www.linkedin.com/in/noble-nnamani-8baba8151",
     },
   ];
@@ -49,15 +52,16 @@ export default function Team() {
               rel="noopener noreferrer"
               aria-label={`${person.name}, ${person.role}, on LinkedIn (opens in a new tab)`}
             >
-              <div className={`team-image team-${person.image}`}>
+              <div className={`team-image team-${person.imageKey}`}>
                 <img
-                  src={`/images/optimized/${person.image}.png`}
+                  src={person.image}
                   alt={person.name}
                   loading="lazy"
-                  width="520"
-                  height="600"
+                  decoding="async"
+                  width="1024"
+                  height="1024"
                 />
-                <span>
+                <span aria-hidden="true">
                   <ArrowUpRight size={20} />
                 </span>
               </div>
