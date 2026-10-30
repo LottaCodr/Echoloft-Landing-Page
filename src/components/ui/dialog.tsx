@@ -1,69 +1,66 @@
-import * as React from "react"
+import * as React from "react";
+import { Dialog as DialogPrimitive } from "radix-ui";
+import { X } from "lucide-react";
+import { cn } from "../../lib/utils";
 
-type DialogContextValue = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}
+export const Dialog = DialogPrimitive.Root;
+export const DialogTrigger = DialogPrimitive.Trigger;
+export const DialogClose = DialogPrimitive.Close;
 
-const DialogContext = React.createContext<DialogContextValue | null>(null)
-
-function useDialogContext() {
-  const ctx = React.useContext(DialogContext)
-  if (!ctx) {
-    throw new Error("Dialog components must be used within <Dialog>")
-  }
-  return ctx
-}
-
-export type DialogProps = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  children: React.ReactNode
-}
-
-export function Dialog({ open, onOpenChange, children }: DialogProps) {
+export function DialogContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Content>) {
   return (
-    <DialogContext.Provider value={{ open, onOpenChange }}>
-      {children}
-    </DialogContext.Provider>
-  )
-}
-
-export type DialogContentProps = React.HTMLAttributes<HTMLDivElement>
-
-export function DialogContent({ className = "", children, ...props }: DialogContentProps) {
-  const { open, onOpenChange } = useDialogContext()
-  if (!open) return null
-
-  return (
-    <div
-      className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
-      onClick={() => onOpenChange(false)}
-    >
-      <div
-        className={`w-full max-w-lg rounded-2xl bg-white shadow-xl border border-gray-200 p-6 relative ${className}`}
-        onClick={e => e.stopPropagation()}
+    <DialogPrimitive.Portal>
+      <DialogPrimitive.Overlay className="dialog-overlay" />
+      <DialogPrimitive.Content
+        className={cn("dialog-content", className)}
         {...props}
       >
         {children}
-      </div>
-    </div>
-  )
+        <DialogPrimitive.Close
+          className="dialog-close"
+          aria-label="Close dialog"
+        >
+          <X size={20} />
+        </DialogPrimitive.Close>
+      </DialogPrimitive.Content>
+    </DialogPrimitive.Portal>
+  );
 }
-
-export function DialogHeader({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={`mb-4 ${className}`} {...props} />
+export function DialogHeader({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn("dialog-header", className)} {...props} />;
 }
-
-export function DialogTitle({ className = "", ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h2 className={`text-xl font-semibold text-gray-900 ${className}`} {...props} />
+export function DialogTitle({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Title>) {
+  return (
+    <DialogPrimitive.Title
+      className={cn("dialog-title", className)}
+      {...props}
+    />
+  );
 }
-
-export function DialogDescription({ className = "", ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className={`mt-1 text-sm text-gray-600 ${className}`} {...props} />
+export function DialogDescription({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Description>) {
+  return (
+    <DialogPrimitive.Description
+      className={cn("dialog-description", className)}
+      {...props}
+    />
+  );
 }
-
-export function DialogFooter({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={`mt-6 flex flex-col sm:flex-row sm:justify-end gap-3 ${className}`} {...props} />
+export function DialogFooter({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn("dialog-footer", className)} {...props} />;
 }
-

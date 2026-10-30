@@ -228,8 +228,9 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       {/* Simple mobile menu */}
       {mobileOpen && (
         <div
-          className="absolute left-0 right-0 top-24 z-[1001] md:hidden bg-white border-t border-gray-100 shadow-lg"
+          className="absolute left-0 right-0 top-24 z-[1001] md:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-6rem)] overflow-y-auto"
           aria-modal="true"
+          role="dialog"
           tabIndex={-1}
         >
           <div className="flex flex-col items-center gap-2 py-6 px-5">

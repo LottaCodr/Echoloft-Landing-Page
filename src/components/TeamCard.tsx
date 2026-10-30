@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { TeamMember } from "../types/types";
 import React from "react"
 import { avatarVariants, cardVariants } from "../types/animation";
