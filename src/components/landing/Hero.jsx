@@ -64,9 +64,24 @@ export default function Hero({ onBooking }) {
           </div>
           <div className="hero-team">
             <div className="avatar-stack">
-              <img src="/images/optimized/joel.webp" alt="" />
-              <img src="/images/optimized/lotta.webp" alt="" />
-              <img src="/images/optimized/noble.webp" alt="" />
+              <img
+                src="/images/optimized/joel.webp"
+                alt=""
+                width="64"
+                height="64"
+              />
+              <img
+                src="/images/optimized/lotta.webp"
+                alt=""
+                width="64"
+                height="64"
+              />
+              <img
+                src="/images/optimized/noble.webp"
+                alt=""
+                width="64"
+                height="64"
+              />
             </div>
             <div>
               <strong>A small team. A big commitment.</strong>

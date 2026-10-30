@@ -52,13 +52,25 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
     expect(heading.x + heading.width).toBeLessThanOrEqual(width);
     await page.locator("#team").scrollIntoViewIfNeeded();
-    await expect(page.locator("#team img").first()).toBeVisible();
+    const portraits = page.locator("#team img");
+    await expect(portraits).toHaveCount(3);
+    await expect(portraits.first()).toBeVisible();
+    await expect
+      .poll(async () =>
+        portraits.evaluateAll((images) =>
+          images.every(
+            (img) => img.complete && img.naturalWidth >= 1024 && img.naturalHeight >= 1024,
+          ),
+        ),
+      )
+      .toBe(true);
     await expect
       .poll(async () =>
         page
-          .locator("#team img")
+          .locator(".avatar-stack img")
           .evaluateAll((images) =>
-            images.every((img) => img.complete && img.naturalWidth > 0),
+            images.length === 3 &&
+            images.every((img) => img.complete && img.naturalWidth >= 1024),
           ),
       )
       .toBe(true);

@@ -1485,13 +1485,9 @@ h1 .serif-word {
   height: 100%;
   object-fit: cover;
   object-position: 50% 25%;
-  filter: saturate(0.65);
-  transition:
-    filter 0.4s,
-    transform 0.4s;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.team-card:hover img {
-  filter: saturate(1);
+.team-card:hover .team-image img {
   transform: scale(1.035);
 }
 .team-image > span {
