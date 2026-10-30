@@ -164,7 +164,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand/About */}
           <div className="top-0">
-            <div className="flex items-center mb-4">
+            <div className="flex  mb-4">
               <div
                 className="w-28 h-28 rounded-full flex items-center justify-center bg-transparent transition-transform duration-300 hover:scale-105 active:scale-100"
                 style={{
